@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="max-w-2xl">
@@ -10,7 +9,9 @@
 
     <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
       <div class="flex items-center gap-6 mb-8">
-        <div class="h-20 w-20 rounded-full bg-blue-600 flex items-center justify-center text-white text-2xl font-bold">
+        <div
+          class="h-20 w-20 rounded-full bg-blue-600 flex items-center justify-center text-white text-2xl font-bold"
+        >
           JD
         </div>
         <div>
@@ -18,7 +19,7 @@
           <p class="text-gray-500">Systems Operator</p>
         </div>
       </div>
-      
+
       <div class="space-y-4 border-t pt-6">
         <div class="flex justify-between py-2 border-b border-gray-50">
           <span class="text-gray-500">Email</span>

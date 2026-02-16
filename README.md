@@ -10,7 +10,6 @@ This project follows a **Domain-Driven Modular** structure to ensure high mainta
 
 * **`src/modules/`**: The application is split into feature-based modules (e.g., `home`, `security`). Each module is self-contained with its own components, views, and local state.
 * **`src/services/`**: The **Data Access Layer**. All API logic is decoupled from the UI. 
-    * *Why?* This allows the frontend to be developed independently. The services currently fetch data from the `mocks/` folder but are "plug-and-play" ready for Axios/Real API integration.
 * **`src/mocks/`**: Contains static JSON data that mimics real backend responses. This enables rapid prototyping without a live backend.
 * **`src/stores/`**: Global state management via **Pinia**. It coordinates data flow between services and components, managing `loading` and `error` states globally.
 * **`src/layouts/`**: Shared UI wrappers (Sidebars, Navbars) that provide a consistent shell for all feature modules.

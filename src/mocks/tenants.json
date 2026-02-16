@@ -1,0 +1,5 @@
+{
+  "Tenant A": { "activeSites": "12", "alerts": "4", "users": "28" },
+  "Tenant B": { "activeSites": "5", "alerts": "0", "users": "10" },
+  "Tenant C": { "activeSites": "24", "alerts": "15", "users": "142" }
+}

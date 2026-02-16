@@ -1,21 +1,21 @@
 <script setup lang="ts">
 import { useTenantStore } from '../store/tenantStore';
-import { computed } from 'vue';
+import { computed , onMounted} from 'vue';
 
 const tenantStore = useTenantStore();
 
-const tenantData = {
-  'Tenant A': { activeSites: '12', alerts: '4', users: '28' },
-  'Tenant B': { activeSites: '5', alerts: '0', users: '10' },
-  'Tenant C': { activeSites: '24', alerts: '15', users: '142' }
-};
+//trigger fetch on mount
+onMounted(() => {
+  tenantStore.fetchTenants();
+})
 
 const stats = computed(() => {
-  const data = tenantData[tenantStore.selectedTenant as keyof typeof tenantData];
+  // stats are now derived from store's "allStats"
+  const currentData = tenantStore.allStats[tenantStore.selectedTenant] || { activeSites: '0', alerts: '0', users: '0' };
   return [
-    { label: 'Active Sites', value: data.activeSites, color: 'bg-green-500' },
-    { label: 'Pending Alerts', value: data.alerts, color: 'bg-red-500' },
-    { label: 'Total Users', value: data.users, color: 'bg-blue-500' }
+    { label: 'Active Sites', value: currentData.activeSites, color: 'bg-green-500' },
+    { label: 'Pending Alerts', value: currentData.alerts, color: 'bg-red-500' },
+    { label: 'Total Users', value: currentData.users, color: 'bg-blue-500' }
   ];
 });
 
@@ -29,6 +29,10 @@ const recentLogs = [
 </script>
 
 <template>
+  <div v-if="tenantStore.loading" class="flex flex-col items-center justify-center p-20 space-y-4">
+    <div class="animate-spin h-10 w-10 border-4 border-blue-500 rounded-full border-t-transparent"></div>
+    <p class="text-blue-600 font-medium animate-pulse">Loading dashboard data...</p>
+  </div>
   <div class="max-w-6xl">
     <div class="mb-4 p-2 bg-blue-50 text-blue-800 rounded text-sm font-medium">
   Currently viewing data for: {{ tenantStore.selectedTenant }}

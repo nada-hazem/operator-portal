@@ -1,7 +1,7 @@
 /* 1. CORE IMPORTS */
 @plugin "tailwindcss-primeui";
-@import "primeicons/primeicons.css";
-@import "tailwindcss";
+@import 'primeicons/primeicons.css';
+@import 'tailwindcss';
 
 /* 2. BRANDING & THEME CONFIGURATION (v4 CSS-First) */
 @theme {
@@ -10,7 +10,7 @@
   --color-primary-dark: #33a06f;
   --color-secondary: #3498db;
   --color-error: #e74c3c;
-  
+
   /* Shared Branding Variables */
   --color-black: var(--color-black);
   --color-white: var(--color-white);
@@ -20,9 +20,9 @@
   --color-gray-4: var(--color-gray-4);
 
   /* Typography Fonts */
-  --font-tiktok: "TikTokFont", sans-serif;
+  --font-tiktok: 'TikTokFont', sans-serif;
   --font-sans: var(--font-tiktok);
-  --font-mono: "JetBrains Mono", monospace;
+  --font-mono: 'JetBrains Mono', monospace;
   --default-font-family: var(--font-tiktok);
 
   /* Typography Scale with Metadata */
@@ -62,12 +62,20 @@
 
   /* Animations & Keyframes */
   @keyframes accordion-down {
-    from { height: 0; }
-    to { height: var(--radix-accordion-content-height); }
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
   }
   @keyframes accordion-up {
-    from { height: var(--radix-accordion-content-height); }
-    to { height: 0; }
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
   }
   --animate-accordion-down: accordion-down 200ms var(--ease-custom);
   --animate-accordion-up: accordion-up 200ms var(--ease-custom);
@@ -90,7 +98,8 @@
 
 /* 3. GLOBAL BASE STYLES */
 @layer base {
-  html, body {
+  html,
+  body {
     font-family: var(--font-tiktok);
     background-color: white; /* Ensures background is not black */
     color: #2c3e50;

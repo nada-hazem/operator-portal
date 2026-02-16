@@ -1,3 +1,4 @@
+set -e
 
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -17,6 +18,20 @@ rm -rf node_modules package-lock.json
 
 echo -e "${BLUE}📦 Installing npm dependencies (Pinia, Tailwind, Router)...${NC}"
 npm install
+
+echo -e "${BLUE}🛡️ Running Quality Guards...${NC}"
+
+echo -e "  - Checking for code smells (Linting)..."
+npm run lint
+
+echo -e "  - Verifying types (TypeScript check)..."
+npm run type-check
+
+echo -e "  - Polishing code style (Prettier)..."
+npm run format
+
+echo -e "${GREEN}✨ Quality check passed!${NC}"
+
 
 echo -e "${GREEN} Setup Complete!${NC}"
 echo -e "${BLUE}⚡ Starting Vite development server...${NC}"

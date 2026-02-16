@@ -1,10 +1,9 @@
-import tenantsMock from '../mocks/tenants.json';
+import tenantsMock from '../mocks/tenants.json'
 
 export const tenantService = {
   async getTenants() {
     return new Promise((resolve) => {
-      setTimeout(() => resolve(tenantsMock), 500);
-    });
-  }
-};
-
+      setTimeout(() => resolve(tenantsMock), 500)
+    })
+  },
+}

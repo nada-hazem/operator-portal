@@ -27,6 +27,9 @@ npm run lint
 echo -e "  - Verifying types (TypeScript check)..."
 npm run type-check
 
+echo -e "${BLUE}🧪 Running Unit Tests...${NC}"
+npm run test:unit
+
 echo -e "  - Polishing code style (Prettier)..."
 npm run format
 
